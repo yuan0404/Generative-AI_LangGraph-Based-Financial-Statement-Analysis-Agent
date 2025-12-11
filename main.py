@@ -9,8 +9,7 @@ from pipeline import init_graph, init_state
 app = FastAPI(title="Financial Statement Analysis Agent API")
 
 origins = [
-    "http://localhost",
-    "http://localhost:5500",
+    "http://127.0.0.1:5500",
     "https://yuan0404.github.io"
 ]
 
@@ -44,4 +43,5 @@ def analyze(input: Input):
     memory.append({"user": user_input, "assistant": answer})
 
     return result
+
 
