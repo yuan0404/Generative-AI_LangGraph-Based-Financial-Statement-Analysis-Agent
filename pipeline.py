@@ -351,6 +351,10 @@ def answer(state: State) -> State:
     prompt = f"""
     你是一位專業財務分析師，負責根據提供的資料完整並詳細的回答使用者問題。
 
+    規則如下：
+    1. 回答必須使用提供的資料，不得杜撰內容。
+    2. 使用 Markdown 格式回答，公式用 $$ 包起來。
+
     問題如下：
     {parse_result}
 
@@ -372,7 +376,8 @@ def answer_check(state: State) -> bool:
     規則如下：
     1. 檢查回答是否完整反映問題所需的財務資訊。
     2. 核對回答是否與資料一致。
-    3. 最終僅輸出一個字：True 或 False，不得包含任何其他說明或段落。
+    3. 檢查是否為 Markdown 格式。
+    4. 最終僅輸出一個字：True 或 False，不得包含任何其他說明或段落。
 
     問題如下：
     {parse_result}
