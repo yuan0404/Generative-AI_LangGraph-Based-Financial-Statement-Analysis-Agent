@@ -251,7 +251,7 @@ def fetch(state: State) -> State:
                 if date in df.columns:
                     df = df[[date]]
                     if not df.empty:
-                        result += f"{c} 的 {t} {r}:\n"
+                        result += f"{c} 的 {t} {r}：\n"
                         result += df.to_string()
                         result += "\n\n"
                     else:
