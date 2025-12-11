@@ -251,13 +251,13 @@ def fetch(state: State) -> State:
                 if date in df.columns:
                     df = df[[date]]
                     if not df.empty:
-                        result += f"{c} 的 {t} {r}：\n"
+                        result += f"{c} 的 {t} {r}\n"
                         result += df.to_string()
                         result += "\n\n"
                     else:
-                        result += f"找不到 {c} 的 {t} {r}。\n\n"
+                        result += f"找不到 {c} 的 {t} {r}\n\n"
                 else:
-                    result += f"找不到 {c} 的 {t} {r}。\n\n"
+                    result += f"找不到 {c} 的 {t} {r}\n\n"
 
     state["fetch_result"] = result
     return state
