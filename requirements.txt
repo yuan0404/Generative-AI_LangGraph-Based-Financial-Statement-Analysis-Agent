@@ -1,0 +1,7 @@
+fastapi==0.124.2
+langchain_groq==1.1.0
+langgraph==1.0.4
+pydantic==2.12.5
+python-dotenv==1.2.1
+yfinance==0.2.66
+uvicorn==0.38.0
