@@ -179,7 +179,7 @@ def extract_check(state: State) -> bool:
 
 def extract_retry(state: State) -> bool:
     state["extract_retry_count"][0] += 1
-    return state["extract_retry_count"][0] <= 9
+    return state["extract_retry_count"][0] <= 4
 
 
 def extract_error(state: State) -> State:
@@ -327,7 +327,7 @@ def clean_check(state: State) -> bool:
 
 def clean_retry(state: State) -> bool:
     state["clean_retry_count"][0] += 1
-    return state["clean_retry_count"][0] <= 9
+    return state["clean_retry_count"][0] <= 4
 
 
 def clean_error(state: State) -> State:
@@ -398,7 +398,7 @@ def answer_check(state: State) -> bool:
 
 def answer_retry(state: State) -> bool:
     state["answer_retry_count"][0] += 1
-    return state["answer_retry_count"][0] <= 9
+    return state["answer_retry_count"][0] <= 4
 
 
 def answer_error(state: State) -> State:
