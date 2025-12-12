@@ -179,7 +179,7 @@ def extract_check(state: State) -> bool:
 
 def extract_retry(state: State) -> bool:
     state["extract_retry_count"][0] += 1
-    return state["extract_retry_count"][0] <= 4
+    return state["extract_retry_count"][0] <= 9
 
 
 def extract_error(state: State) -> State:
@@ -327,7 +327,7 @@ def clean_check(state: State) -> bool:
 
 def clean_retry(state: State) -> bool:
     state["clean_retry_count"][0] += 1
-    return state["clean_retry_count"][0] <= 4
+    return state["clean_retry_count"][0] <= 9
 
 
 def clean_error(state: State) -> State:
@@ -354,6 +354,9 @@ def answer(state: State) -> State:
     規則如下：
     1. 回答必須使用提供的資料，不得杜撰內容。
     2. 使用 Markdown 格式作答。
+    3. 所有涉及數學公式的計算或比率、百分比、差額等，請使用 LaTeX 數學公式格式，並包在 display 模式中：
+        - 使用 `$$ ... $$` 或 `\[ ... \]` 包住公式
+        - 若公式需要多行，可使用 `aligned` 或 `multline` 環境
 
     問題如下：
     {parse_result}
@@ -377,7 +380,8 @@ def answer_check(state: State) -> bool:
     1. 檢查回答是否完整反映問題所需的財務資訊。
     2. 核對回答是否與資料一致。
     3. 檢查是否為 Markdown 格式。
-    4. 最終僅輸出一個字：True 或 False，不得包含任何其他說明或段落。
+    4. 檢查數學公式是否使用 LaTeX 數學公式格式。
+    5. 最終僅輸出一個字：True 或 False，不得包含任何其他說明或段落。
 
     問題如下：
     {parse_result}
@@ -394,7 +398,7 @@ def answer_check(state: State) -> bool:
 
 def answer_retry(state: State) -> bool:
     state["answer_retry_count"][0] += 1
-    return state["answer_retry_count"][0] <= 4
+    return state["answer_retry_count"][0] <= 9
 
 
 def answer_error(state: State) -> State:
